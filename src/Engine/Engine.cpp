@@ -13,7 +13,9 @@ Engine::Engine()
 
 	// init full screen view
 	m_mainView.setSize(Vector2f(resolution));
-	m_hudView.reset(FloatRect(0, 0, resolution.x, resolution.y));
+	m_hudView.reset(
+		FloatRect(0, 0, static_cast<float>(resolution.x), static_cast<float>(resolution.y))
+	);
 
 	// init split screen views, leave a small gap for a "border" to clearly split the views
 	m_leftView.setViewport(FloatRect(0.001f, 0.001f, 0.498f, 0.998f));
