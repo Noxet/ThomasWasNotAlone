@@ -10,3 +10,5 @@
 using sf::Vector2f;
 using sf::Vector2i;
 using sf::Vector2u;
+using sf::FloatRect;
+using sf::Color;
