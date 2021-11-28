@@ -2,6 +2,8 @@
 
 #include "TextureHolder.hpp"
 
+#include <iostream>
+
 
 sf::Texture& TextureHolder::getTexture(const std::string& filename)
 {
@@ -20,7 +22,10 @@ sf::Texture& TextureHolder::getTexture(const std::string& filename)
 	}
 	
 	auto& texture = textures[filename];
-	texture.loadFromFile(filename);
+	if (!texture.loadFromFile(filename))
+	{
+		std::cout << "Warning, could not load texture file: " << filename << std::endl;
+	}
 
 	return texture;
 }
