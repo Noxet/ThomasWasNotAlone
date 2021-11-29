@@ -17,6 +17,18 @@ void Engine::update(float dt)
 		m_thomas.update(dt);
 		m_bob.update(dt);
 
+		if (detectCollisions(m_thomas) && detectCollisions(m_bob))
+		{
+			m_newLevelRequired = true;
+
+			// play goal sound
+		}
+		else
+		{
+			// detectCollisions was only run for thomas in the if statement
+			detectCollisions(m_bob);
+		}
+
 		if (m_timeRemaining <= 0)
 		{
 			// OOT?

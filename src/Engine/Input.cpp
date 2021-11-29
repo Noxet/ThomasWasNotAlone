@@ -5,7 +5,7 @@
 
 void Engine::input()
 {
-	sf::Event event;
+	sf::Event event{};
 
 	while (m_window.pollEvent(event))
 	{

@@ -71,4 +71,6 @@ private:
 	void render();
 
 	void loadLevel();
+
+	bool detectCollisions(Player& character);
 };
