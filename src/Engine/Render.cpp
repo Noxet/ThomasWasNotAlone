@@ -14,11 +14,16 @@ void Engine::render()
 		m_window.setView(m_bgLeftView);		// draw background
 		m_window.draw(m_bgSprite);
 		m_window.setView(m_leftView);		// switch to main view
+		// both players are visible in both views
+		m_window.draw(m_thomas.getSprite());
+		m_window.draw(m_bob.getSprite());
 
 		// draw Bob's view
-		m_window.setView(m_bgRightView);	// draw background
+		m_window.setView(m_bgRightView);			// draw background
 		m_window.draw(m_bgSprite);
-		m_window.setView(m_rightView);		// switch to main view
+		m_window.setView(m_rightView);				// switch to main view
+		m_window.draw(m_bob.getSprite());		// draw Bob above Thomas in Bob's view
+		m_window.draw(m_thomas.getSprite());
 	}
 	else
 	{
@@ -28,6 +33,8 @@ void Engine::render()
 
 		// draw main view
 		m_window.setView(m_mainView);
+		m_window.draw(m_thomas.getSprite());
+		m_window.draw(m_bob.getSprite());
 	}
 
 	 // draw HUD

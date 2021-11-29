@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Characters/Bob.hpp"
+#include "Characters/Thomas.hpp"
+
 
 class Engine
 {
@@ -8,6 +11,10 @@ private:
 	const int cm_vertsInQuad{ 4 };
 
 	const int cm_gravity{ 300 };
+
+	// Our protagonists
+	Thomas m_thomas;
+	Bob m_bob;
 
 	sf::RenderWindow m_window;
 

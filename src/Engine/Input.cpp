@@ -31,4 +31,16 @@ void Engine::input()
 			}
 		}
 	}
+
+	// handle player inputs
+	if (m_thomas.handleInput())
+	{
+		// play jump sound
+	}
+
+
+	if (m_bob.handleInput())
+	{
+		// play jump sound
+	}
 }
