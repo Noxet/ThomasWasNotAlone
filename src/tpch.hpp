@@ -12,3 +12,4 @@ using sf::Vector2i;
 using sf::Vector2u;
 using sf::FloatRect;
 using sf::Color;
+using sf::Keyboard;
