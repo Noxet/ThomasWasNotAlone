@@ -2,6 +2,8 @@
 
 #include "Engine.hpp"
 
+#include <iostream>
+
 
 Engine::Engine()
 {
@@ -23,8 +25,18 @@ Engine::Engine()
 	m_bgLeftView.setViewport(FloatRect(0.001f, 0.001f, 0.498f, 0.998f));
 	m_bgRightView.setViewport(FloatRect(0.5f, 0.001f, 0.499f, 0.998f));
 
+	// check if we can use shaders on our GPU
+	if (!sf::Shader::isAvailable())
+	{
+		// TODO: add real logging
+		std::cerr << "Shaders are not available on the current GPU" << std::endl;
+		m_window.close();
+	}
+
 	m_bgTexture = TextureHolder::getTexture("../assets/gfx/background.png");
 	m_bgSprite.setTexture(m_bgTexture);
+
+	m_textureTiles = TextureHolder::getTexture("../assets/gfx/tiles_sheet.png");
 }
 
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "LevelManager.hpp"
 #include "Characters/Bob.hpp"
 #include "Characters/Thomas.hpp"
 
@@ -7,14 +8,16 @@
 class Engine
 {
 private:
-	const int cm_tileSize{ 50 };
-	const int cm_vertsInQuad{ 4 };
+	const int TILE_SIZE{ 50 };
+	const int VERTS_IN_QUAD{ 4 };
 
-	const int cm_gravity{ 300 };
+	const int GRAVITY{ 300 };
 
 	// Our protagonists
 	Thomas m_thomas;
 	Bob m_bob;
+
+	LevelManager m_levelManager;
 
 	sf::RenderWindow m_window;
 
@@ -49,6 +52,11 @@ private:
 	// time for new (or first) level?
 	bool m_newLevelRequired{ true };
 
+	// vertex array and texture for the levels
+	sf::VertexArray m_vertArrLevel;
+	int** m_arrLevel = nullptr;
+	sf::Texture m_textureTiles;
+
 public:
 	Engine();
 
@@ -61,4 +69,6 @@ private:
 	void input();
 	void update(float dt);
 	void render();
+
+	void loadLevel();
 };

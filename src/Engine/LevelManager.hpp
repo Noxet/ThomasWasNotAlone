@@ -11,7 +11,7 @@ private:
 	float m_baseTimeLimit{};
 
 	int m_currentLevel{ 0 };
-	const int NUM_LEVELS;
+	const int NUM_LEVELS{ 4 };
 
 public:
 	const int TILE_SIZE{ 50 };

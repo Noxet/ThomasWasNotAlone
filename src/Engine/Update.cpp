@@ -7,11 +7,7 @@ void Engine::update(float dt)
 {
 	if (m_newLevelRequired)
 	{
-		m_thomas.spawn(Vector2f(0, 0), cm_gravity);
-		m_bob.spawn(Vector2f(100, 0), cm_gravity);
-
-		m_timeRemaining = 10;
-		m_newLevelRequired = false;
+		loadLevel();
 	}
 
 	if (m_isPlaying)
