@@ -47,6 +47,22 @@ void Engine::update(float dt)
 		}
 	}
 
+	// Are we going to play fire sound?
+	for (auto it = m_fireEmitters.begin(); it != m_fireEmitters.end(); ++it)
+	{
+		// get the emitter position
+		const float posX = it->x;
+		const float posY = it->y;
+
+		// check if the emitter is near the player, e.g., within 500px
+		FloatRect localRect(posX - 250, posY - 250, 500, 500);
+		if (m_thomas.getPosition().intersects(localRect))
+		{
+			// close enough
+			m_soundManager.playFire(Vector2f(posX, posY), m_thomas.getCenter());
+		}
+	}
+
 	if (m_splitScreen)
 	{
 		m_leftView.setCenter(m_thomas.getCenter());

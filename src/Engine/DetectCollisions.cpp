@@ -57,10 +57,12 @@ bool Engine::detectCollisions(Player& character)
 					if (m_arrLevel[y][x] == 2)
 					{
 						// hit fire, play sound
+						m_soundManager.playFallInFire();
 					}
 					else
 					{
 						// hit water, play sound
+						m_soundManager.playFallInWater();
 					}
 				}
 			}
