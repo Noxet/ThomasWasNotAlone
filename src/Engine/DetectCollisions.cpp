@@ -36,6 +36,7 @@ bool Engine::detectCollisions(Player& character)
 	{
 		// re-spawn character
 		character.spawn(m_levelManager.getStartPosition(), GRAVITY);
+		return false;
 	}
 
 	// check against all local blocks

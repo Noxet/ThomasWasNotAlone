@@ -29,6 +29,16 @@ void Engine::update(float dt)
 			detectCollisions(m_bob);
 		}
 
+		// check collision between the players
+		if (m_bob.getFeet().intersects(m_thomas.getHead()))
+		{
+			m_bob.stopFalling(m_thomas.getHead().top);
+		}
+		else if (m_thomas.getFeet().intersects(m_bob.getHead()))
+		{
+			m_thomas.stopFalling(m_bob.getHead().top);
+		}
+
 		if (m_timeRemaining <= 0)
 		{
 			// OOT?
