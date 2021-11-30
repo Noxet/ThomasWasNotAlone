@@ -75,3 +75,32 @@ void SoundManager::playFire(Vector2f emitterLocation, Vector2f listenerLocation)
 
 	if (m_nextSound > 3) m_nextSound = 1;
 }
+
+
+void SoundManager::playFallInFire()
+{
+	// Make it non-spatialized, i.e., override the Listener::setPosition() call
+	m_fallInFireSound.setRelativeToListener(true);
+	m_fallInFireSound.play();
+}
+
+
+void SoundManager::playFallInWater()
+{
+	m_fallInWaterSound.setRelativeToListener(true);
+	m_fallInWaterSound.play();
+}
+
+
+void SoundManager::playJump()
+{
+	m_jumpSound.setRelativeToListener(true);
+	m_jumpSound.play();
+}
+
+
+void SoundManager::playReachGoal()
+{
+	m_reachGoalSound.setRelativeToListener(true);
+	m_reachGoalSound.play();
+}
