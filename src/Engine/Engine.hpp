@@ -1,6 +1,7 @@
 #pragma once
 
 #include "LevelManager.hpp"
+#include "SoundManager.hpp"
 #include "Characters/Bob.hpp"
 #include "Characters/Thomas.hpp"
 
@@ -18,6 +19,10 @@ private:
 	Bob m_bob;
 
 	LevelManager m_levelManager;
+	SoundManager m_soundManager;
+
+	// locations for all fire emitters
+	std::vector<Vector2f> m_fireEmitters;
 
 	sf::RenderWindow m_window;
 
@@ -73,4 +78,6 @@ private:
 	void loadLevel();
 
 	bool detectCollisions(Player& character);
+
+	void populateEmitters(std::vector<Vector2f>& soundEmitters, int** arrayLevel);
 };

@@ -22,6 +22,7 @@ void Engine::update(float dt)
 			m_newLevelRequired = true;
 
 			// play goal sound
+			m_soundManager.playReachGoal();
 		}
 		else
 		{

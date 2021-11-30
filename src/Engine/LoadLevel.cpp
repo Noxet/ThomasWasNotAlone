@@ -17,6 +17,9 @@ void Engine::loadLevel()
 	// load the next level
 	m_arrLevel = m_levelManager.nextLevel(m_vertArrLevel);
 
+	// setup sound emitters
+	populateEmitters(m_fireEmitters, m_arrLevel);
+
 	m_timeRemaining = m_levelManager.getTimeLimit();
 
 	m_thomas.spawn(m_levelManager.getStartPosition(), GRAVITY);
