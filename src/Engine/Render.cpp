@@ -8,11 +8,13 @@ void Engine::render()
 	// clear window, set color to white
 	m_window.clear(Color::White);
 
+	m_rippleShader.setUniform("uTime", m_gameTimeTotal.asSeconds());
+
 	if (m_splitScreen)
 	{
 		// draw Thomas' view
 		m_window.setView(m_bgLeftView);		// draw background
-		m_window.draw(m_bgSprite);
+		m_window.draw(m_bgSprite, &m_rippleShader);
 		m_window.setView(m_leftView);		// switch to main view
 		
 		// draw the level
@@ -29,7 +31,7 @@ void Engine::render()
 
 		// draw Bob's view
 		m_window.setView(m_bgRightView);			// draw background
-		m_window.draw(m_bgSprite);
+		m_window.draw(m_bgSprite, &m_rippleShader);
 		m_window.setView(m_rightView);				// switch to main view
 
 		// draw the level
@@ -47,7 +49,7 @@ void Engine::render()
 	{
 		// draw background
 		m_window.setView(m_bgMainView);
-		m_window.draw(m_bgSprite);
+		m_window.draw(m_bgSprite, &m_rippleShader);
 
 		// draw the level
 		m_window.draw(m_vertArrLevel, &m_textureTiles);

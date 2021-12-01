@@ -50,6 +50,9 @@ private:
 	sf::Texture m_bgTexture;
 	sf::Sprite m_bgSprite;
 
+	// background shader
+	sf::Shader m_rippleShader;
+
 	bool m_isPlaying{ false };
 
 	// which player is in the current focus

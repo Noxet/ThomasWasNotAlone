@@ -32,6 +32,11 @@ Engine::Engine()
 		std::cerr << "Shaders are not available on the current GPU" << std::endl;
 		m_window.close();
 	}
+	else
+	{
+		// load the vertex and fragment shader
+		m_rippleShader.loadFromFile("../assets/shaders/vertShader.vert", "../assets/shaders/rippleShader.frag");
+	}
 
 	m_bgTexture = TextureHolder::getTexture("../assets/gfx/background.png");
 	m_bgSprite.setTexture(m_bgTexture);
