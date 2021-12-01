@@ -79,4 +79,20 @@ void Engine::update(float dt)
 			m_mainView.setCenter(m_bob.getCenter());
 		}
 	}
+
+	// update HUD?
+	m_timeSinceLastHUDUpdate += dt;
+
+	if (m_timeSinceLastHUDUpdate > m_timePerHUDUpdate)
+	{
+		m_timeSinceLastHUDUpdate = 0;
+
+		std::stringstream ssTime;
+		ssTime << static_cast<int>(m_timeRemaining);
+		m_hud.setTime(ssTime.str());
+
+		std::stringstream ssLevel;
+		ssLevel << m_levelManager.getCurrentLevel();
+		m_hud.setLevel(ssLevel.str());
+	}
 }

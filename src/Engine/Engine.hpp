@@ -2,6 +2,7 @@
 
 #include "LevelManager.hpp"
 #include "SoundManager.hpp"
+#include "Characters/HUD.hpp"
 #include "Characters/Bob.hpp"
 #include "Characters/Thomas.hpp"
 
@@ -25,6 +26,10 @@ private:
 	std::vector<Vector2f> m_fireEmitters;
 
 	sf::RenderWindow m_window;
+
+	HUD m_hud;
+	float m_timeSinceLastHUDUpdate{};
+	float m_timePerHUDUpdate{ 0.1f };	// time in s
 
 	// The main views
 	sf::View m_mainView;	// for full screen game

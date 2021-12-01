@@ -50,6 +50,12 @@ void Engine::render()
 
 	 // draw HUD
 	m_window.setView(m_hudView);
+	m_window.draw(m_hud.getTime());
+	m_window.draw(m_hud.getLevel());
+	if (!m_isPlaying)
+	{
+		m_window.draw(m_hud.getMessage());
+	}
 
 	m_window.display();
 }
