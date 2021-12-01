@@ -37,6 +37,8 @@ Engine::Engine()
 	m_bgSprite.setTexture(m_bgTexture);
 
 	m_textureTiles = TextureHolder::getTexture("../assets/gfx/tiles_sheet.png");
+
+	m_particleSystem.init(1000);
 }
 
 
@@ -44,6 +46,8 @@ void Engine::run()
 {
 	sf::Clock clock;
 	sf::Time dt{};
+
+	srand(time(0));
 
 	while (m_window.isOpen())
 	{

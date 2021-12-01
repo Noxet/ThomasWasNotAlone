@@ -89,6 +89,18 @@ bool Engine::detectCollisions(Player& character)
 				}
 			}
 
+			// check if the player's feet is touching water or fire, if so, emit particles
+			if (!m_particleSystem.isRunning())
+			{
+				if (m_arrLevel[y][x] == 2 || m_arrLevel[y][x] == 3)
+				{
+					if (character.getFeet().intersects(block))
+					{
+						m_particleSystem.emitParticles(character.getCenter());
+					}
+				}
+			}
+
 			if (m_arrLevel[y][x] == 4)
 			{
 				reachedGoal = true;

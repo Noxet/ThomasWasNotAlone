@@ -1,6 +1,7 @@
 #pragma once
 
 #include "LevelManager.hpp"
+#include "ParticleSystem.hpp"
 #include "SoundManager.hpp"
 #include "Characters/HUD.hpp"
 #include "Characters/Bob.hpp"
@@ -18,6 +19,8 @@ private:
 	// Our protagonists
 	Thomas m_thomas;
 	Bob m_bob;
+
+	ParticleSystem m_particleSystem;
 
 	LevelManager m_levelManager;
 	SoundManager m_soundManager;

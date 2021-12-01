@@ -95,4 +95,9 @@ void Engine::update(float dt)
 		ssLevel << m_levelManager.getCurrentLevel();
 		m_hud.setLevel(ssLevel.str());
 	}
+
+	if (m_particleSystem.isRunning())
+	{
+		m_particleSystem.update(dt);
+	}
 }
