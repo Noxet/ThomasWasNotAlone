@@ -51,11 +51,12 @@ void Engine::render()
 		m_window.setView(m_bgMainView);
 		m_window.draw(m_bgSprite, &m_rippleShader);
 
+		// draw main view
+		m_window.setView(m_mainView);
+
 		// draw the level
 		m_window.draw(m_vertArrLevel, &m_textureTiles);
 
-		// draw main view
-		m_window.setView(m_mainView);
 		m_window.draw(m_thomas.getSprite());
 		m_window.draw(m_bob.getSprite());
 
